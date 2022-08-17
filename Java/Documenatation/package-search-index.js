@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"org.chudoba.michal.zapoctak"},{"l":"org.chudoba.michal.zapoctak.AI"},{"l":"org.chudoba.michal.zapoctak.Game"},{"l":"org.chudoba.michal.zapoctak.Interface"},{"l":"org.chudoba.michal.zapoctak.Util"}];updateSearchResults();
