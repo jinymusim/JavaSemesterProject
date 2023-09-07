@@ -2,6 +2,7 @@ package org.chudoba.michal.zapoctak.AI;
 
 import org.chudoba.michal.zapoctak.Util.*;
 
+import java.io.IOException;
 import java.io.Serializable;
 
 /** AI that plays the game in a place of human player.
@@ -62,5 +63,20 @@ public abstract class BaseAI implements Serializable {
      *
      */
     public abstract void prepareForNewGame();
+
+    /** Method to load state of AI from config file
+     *
+     * @param filename to load from
+     * @throws IOException file not found
+     */
+    public abstract void loadFromFilename(String filename) throws IOException;
+
+
+    /** Method of writing AI state to file for backup
+     *
+     * @param filename to write to
+     * @throws IOException not successful write
+     */
+    public abstract void writeToFilename(String filename) throws IOException;
 
 }

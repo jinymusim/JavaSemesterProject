@@ -4,6 +4,8 @@ import org.chudoba.michal.zapoctak.Util.AIResponse;
 import org.chudoba.michal.zapoctak.Util.Field;
 import org.chudoba.michal.zapoctak.Util.ShipPlacement;
 
+import java.io.IOException;
+
 /** AI using random numbers to play
  *
  *  {@inheritDoc}
@@ -118,5 +120,13 @@ public class RandomAI extends BaseAI {
                 line[i] = new Field();
         }
     }
+
+    @Override
+    public void loadFromFilename(String filename) throws IOException {
+        throw new IOException("Not supported");
+    }
+
+    @Override
+    public void writeToFilename(String filename) throws IOException {}
 
 }

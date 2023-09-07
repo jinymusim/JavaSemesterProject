@@ -2,6 +2,7 @@ package org.chudoba.michal.zapoctak.AI;
 
 import org.chudoba.michal.zapoctak.Util.*;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -352,6 +353,33 @@ public class AI extends BaseAI{
             for(int i =0; i<arr.length; i++){
                 arr[i] = new Field();
             }
+        }
+    }
+
+    @Override
+    public void loadFromFilename(String filename) throws IOException {
+        try(BufferedReader inputs = new  BufferedReader( new FileReader(filename)) ){
+            for(int i=0; i<this.hitFrequency.length; i++){
+                for (int j=0; j<this.hitFrequency[i].length; j++){
+                    this.hitFrequency[i][j] = Long.parseLong(inputs.readLine());
+                }
+            }
+        }
+        catch (IOException e){
+            throw new IOException("Loading from file not successful");
+        }
+    }
+
+    @Override
+    public void writeToFilename(String filename) throws IOException {
+        try(PrintWriter out = new PrintWriter(new FileWriter(filename))) {
+            for(int i=0; i<this.hitFrequency.length; i++) {
+                for (int j = 0; j < this.hitFrequency[i].length; j++) {
+                    out.println(this.hitFrequency[i][j]);
+                }
+            }
+        } catch (IOException e){
+            throw new IOException("Writing state file not successful");
         }
     }
 }

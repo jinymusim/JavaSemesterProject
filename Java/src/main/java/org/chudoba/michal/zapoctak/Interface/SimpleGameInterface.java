@@ -78,6 +78,13 @@ public class SimpleGameInterface extends BaseGameInterface {
         }
         catch (IOException e){
             System.out.println("AI wasn't stored properly");
+            System.out.println("Attempting to write AI state to file");
+            try {
+                selectedAI.writeToFilename(filename);
+            }
+            catch (IOException err) {
+                System.out.println(err.getMessage());
+            }
         }
     }
 
@@ -105,6 +112,13 @@ public class SimpleGameInterface extends BaseGameInterface {
         catch (IOException | ClassNotFoundException e){
             System.out.println("AI wasn't loaded, new AI is generated");
             selectedAI = new AI(GameHandling.BOARD_SIZE);
+            System.out.println("Attempting to load state from filename");
+            try {
+                selectedAI.loadFromFilename(filename);
+            }
+            catch (IOException err){
+                System.out.println(err.getMessage());
+            }
         }
     }
 
