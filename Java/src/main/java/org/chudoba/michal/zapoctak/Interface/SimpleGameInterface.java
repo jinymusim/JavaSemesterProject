@@ -139,6 +139,7 @@ public class SimpleGameInterface extends BaseGameInterface {
         System.out.println("into arbitrary file base");
         System.out.println();
         System.out.println("'ai' generates new normal AI, if stated by random, the generated ai will be random variant");
+        System.out.println("If stated by clever, Clever Random AI will be used");
     }
 
     /** Play the game with menu and all
@@ -192,6 +193,8 @@ public class SimpleGameInterface extends BaseGameInterface {
                         if(commandWithPar.length>1){
                             if(commandWithPar[1].equals("random"))
                                 selectedAI = new RandomAI(GameHandling.BOARD_SIZE);
+                            else if (commandWithPar[1].equals("clever"))
+                                selectedAI = new CleverRandomAI(GameHandling.BOARD_SIZE);
                         }
                         else
                             selectedAI = new AI(GameHandling.BOARD_SIZE);
